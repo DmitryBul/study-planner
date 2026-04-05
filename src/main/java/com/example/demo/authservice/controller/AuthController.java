@@ -36,4 +36,9 @@ public class AuthController {
 
         return jwtService.generateToken(user.getEmail());
     }
+
+    @GetMapping("/test")
+    public String test() {
+        return "You are authorized";
+    }
 }
