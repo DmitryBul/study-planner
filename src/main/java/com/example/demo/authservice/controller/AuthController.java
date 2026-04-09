@@ -34,11 +34,16 @@ public class AuthController {
             throw new RuntimeException("Invalid password");
         }
 
-        return jwtService.generateToken(user.getEmail());
+        return jwtService.generateToken(user.getEmail(), user.getRole());
     }
 
     @GetMapping("/test")
     public String test() {
         return "You are authorized";
+    }
+
+    @GetMapping("/admin/test")
+    public String adminTest() {
+        return "Admin only";
     }
 }
